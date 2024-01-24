@@ -21,7 +21,7 @@ def cpu_bound_func(num):
 def main():
     executor = ThreadPoolExecutor(max_workers=10)
     results = list(executor.map(cpu_bound_func, nums))
-    print(results)
+    # print(results)
 
 
 if __name__ == "__main__":

@@ -19,7 +19,7 @@ def cpu_bound_func(num):
 
 def main():
     results = [cpu_bound_func(num) for num in nums]
-    print(results)
+    # print(results)
 
 
 if __name__ == "__main__":
