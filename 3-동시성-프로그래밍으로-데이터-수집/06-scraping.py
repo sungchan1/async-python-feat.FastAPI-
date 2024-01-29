@@ -4,6 +4,7 @@ import asyncio
 from config import get_secret
 import aiofiles
 
+
 # pip install aiofiles==0.7.0
 
 
@@ -18,8 +19,7 @@ async def img_downloader(session, img):
     async with session.get(img) as response:
         if response.status == 200:
             async with aiofiles.open(f"./images/{img_name}", mode="wb") as file:
-                img_data = await response.read()
-                await file.write(img_data)
+                await file.write(await response.read())
 
 
 async def fetch(session, url, i):
@@ -38,8 +38,8 @@ async def fetch(session, url, i):
 async def main():
     BASE_URL = "https://openapi.naver.com/v1/search/image"
     keyword = "cat"
-    urls = [f"{BASE_URL}?query={keyword}&display=20&start={1+ i*20}" for i in range(10)]
-    async with aiohttp.ClientSession() as session:
+    urls = [f"{BASE_URL}?query={keyword}&display=20&start={1 + i * 20}" for i in range(10)]
+    async with aiohttp.ClientSession(connector=aiohttp.TCPConnector(ssl=False)) as session:
         await asyncio.gather(*[fetch(session, url, i) for i, url in enumerate(urls)])
 
 

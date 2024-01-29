@@ -29,7 +29,7 @@ async def main():
     BASE_URL = "https://openapi.naver.com/v1/search/image"
     keyword="cat"
 
-    urls = [f"{BASE_URL}?query={keyword}&display=20&start={i}" for i in range(1,10)]
+    urls = [f"{BASE_URL}?query={keyword}&display=20&start={i*20+1}" for i in range(1,10)]
     async with aiohttp.ClientSession(connector=aiohttp.TCPConnector(ssl=False)) as session:
         await asyncio.gather(*[fetch(session, url) for url in urls])
 
