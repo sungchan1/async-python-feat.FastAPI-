@@ -158,3 +158,7 @@ cython_debug/
 #  and can be added to the global gitignore or merged into this file.  For a more nuclear
 #  option (not recommended) you can uncomment the following to ignore the entire idea folder.
 .idea/
+
+3-동시성-프로그래밍으로-데이터-수집/images/
+
+6-실전-프로젝트-콜렉터스/1 ~ 6/.vscode/
