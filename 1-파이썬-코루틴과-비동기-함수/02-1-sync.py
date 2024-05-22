@@ -10,8 +10,8 @@ def delivery(name, mealtime):
 
 def main():
     delivery("A", 1)
-    delivery("B", 1)
-    delivery("C", 1)
+    delivery("B", 2)
+    delivery("C", 3)
 
 
 if __name__ == "__main__":
